@@ -17,6 +17,37 @@
     </head>
 
     <body>
-        {% block body %}{% endblock %}
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand active" href="/">MikeySantoro.com</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="{{'active' if request.path == '/about' else ''}}"><a href="/about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h2 class="text-center">
+                                {% block panel_heading %}{% endblock %}
+                            </h2>
+                        </div>
+                        <div class="panel-body" style="min-height:400px">
+                                {% block panel_body %}{% endblock %}
+                        </div>
+                        <div class="panel-footer">
+                            <p class="text-center">Established in 2018</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
     </body>
 </html>

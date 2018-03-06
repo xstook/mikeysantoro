@@ -1,9 +1,9 @@
 {% extends "layout.tpl" %}
 
 {% block panel_heading %}
-Mikey Santoro
+About
 {% endblock %}
 
 {% block panel_body %}
-<h1>Helloooooooooooo Nurse</h1>
+<h2>Welcome to MikeySantoro.com!</h2>
 {% endblock %}
