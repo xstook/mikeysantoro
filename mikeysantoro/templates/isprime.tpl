@@ -23,7 +23,7 @@ Is Prime?
                 <input class="form-control" type="number" name="user_number">
                 <span id="feedback_span" class="glyphicon form-control-feedback"></span>
                 <br>
-                <input type="submit" class="btn btn-primary btn-block" value="Check">
+                <input id="submit_button" type="submit" class="btn btn-primary btn-block" value="Check">
             </div>
         </form>
     </div>
@@ -38,6 +38,13 @@ Is Prime?
 // Attach a submit handler to the form
 $("#prime_form").submit(function(event) {
 
+    $("#number_input").removeClass("has-success");
+    $("#number_input").removeClass("has-error");
+    $("#feedback_span").removeClass("glyphicon-ok");
+    $("#feedback_span").removeClass("glyphicon-remove");
+    $("#submit_button").prop("disabled", true);
+    $("#submit_button").val("Calculating...");
+
     // Stop form from submitting normally
     event.preventDefault();
 
@@ -49,6 +56,9 @@ $("#prime_form").submit(function(event) {
 
     // Put the results in a div
     posting.done(function(data) {
+        $("#submit_button").prop("disabled", false);
+        $("#submit_button").val("Check");
+
         if (data == "True"){
             $("#number_input").addClass("has-success");
             $("#number_input").removeClass("has-error");
